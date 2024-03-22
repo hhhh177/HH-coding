@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">获取新歌</button>
+  <ul id="ul">
+    <!-- <li>test</li> -->
+  </ul>
+
+
+  <script>
+    let btn = document.getElementById('btn')
+    btn.addEventListener('click', () => {
+      // 发一个http请求
+      let xhr = new XMLHttpRequest()
+      xhr.open('GET', 'http://127.0.0.1:3200/getSongLists?categoryId=10000000', true)
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+          const result = JSON.parse(xhr.responseText).response.data.list
+          console.log(result);
+          for (let i = 0; i < result.length; i++) {
+            // result[i].creator.name
+            const li = document.createElement('li')
+            li.innerText = result[i].creator.name
+            document.getElementById('ul').appendChild(li)
+          }
+
+        }
+      }
+      xhr.send()
+      
+    })
+
+  </script>
+</body>
+</html>
