@@ -127,14 +127,14 @@ import AMapLoader from '@amap/amap-jsapi-loader';
         .future{
             padding: 0 10px;
             margin-top: 30px;
-
+            text-align: center;
             .group{
                 height: 44px;
                 line-height: 44px;
                 background-repeat: 4px;
                 background: rgba(255, 255, 255, 0.3);
                 color: #fff;
-                font-size : 13px;
+                font-size : 12px;
                 margin-bottom: 10px;
                 padding: 0 10px;
             }
